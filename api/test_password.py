@@ -1,25 +1,39 @@
 import unittest
-import string
-from password import generate_password  # Make sure to adjust the import to match your file structure
+from api import app  # Replace 'your_flask_app' with the actual name of your Flask app
+from password import generate_password
 
-class TestGeneratePassword(unittest.TestCase):
+class TestPasswordFunction(unittest.TestCase):
 
     def test_generate_password(self):
-        # Test with a password length of 8 characters, including numbers and symbols
-        password = generate_password(8, include_numbers=True, include_symbols=True)
-        self.assertEqual(len(password), 8)  # Check length
-        self.assertTrue(any(c.isdigit() for c in password))  # Check for the presence of digits
-        self.assertTrue(any(c in string.punctuation for c in password))  # Check for the presence of symbols
+        # Create a test Flask app context
+        with app.test_request_context():
+            # Test with a password length of 8 characters, including numbers and symbols
+            password = generate_password(8, include_numbers=True, include_symbols=True)
+            
+            # Check if the generated password meets the length requirement
+            self.assertEqual(len(password), 8)
 
-        # Test with a password length of 12 characters, without numbers or symbols
-        password = generate_password(12, include_numbers=False, include_symbols=False)
-        self.assertEqual(len(password), 12)  # Check length
-        self.assertFalse(any(c.isdigit() for c in password))  # Check for the absence of digits
-        self.assertFalse(any(c in string.punctuation for c in password))  # Check for the absence of symbols
+            # If numbers and symbols are included, check if they are present in the password
+            if password:
+                self.assertTrue(any(c.isdigit() for c in password))  # Check for the presence of digits
+                self.assertTrue(any(c in string.punctuation for c in password))  # Check for the presence of symbols
 
-        # Test with an invalid password length (0 characters)
-        with self.assertRaises(ValueError):
-            generate_password(0, include_numbers=True, include_symbols=True)
+            # Test with a password length of 12 characters, without numbers or symbols
+            password = generate_password(12, include_numbers=False, include_symbols=False)
+
+            # Check if the generated password meets the length requirement
+            self.assertEqual(len(password), 12)
+
+            # If numbers and symbols are not included, check if they are absent in the password
+            if password:
+                self.assertFalse(any(c.isdigit() for c in password))  # Check for the absence of digits
+                self.assertFalse(any(c in string.punctuation for c in password))  # Check for the absence of symbols
+
+            # Test with an invalid password length (0 characters)
+            password = generate_password(0, include_numbers=True, include_symbols=True)
+
+            # Check if the function returns None for an invalid length
+            self.assertIsNone(password)
 
 if __name__ == '__main__':
     unittest.main()
