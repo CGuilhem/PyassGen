@@ -173,6 +173,7 @@ input {
 
 .input-number {
   color: white;
+  font-size: large;
   background: var(--clr-2);
 }
 
