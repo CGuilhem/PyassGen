@@ -1,5 +1,5 @@
 import unittest
-from api import app  # Replace 'your_flask_app' with the actual name of your Flask app
+from api import app
 from httpApi import send_http_error, send_http_response
 
 class TestFlaskFunctions(unittest.TestCase):
