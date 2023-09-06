@@ -1,8 +1,10 @@
 from flask import Flask
+from flask_cors import CORS
 from httpApi import send_http_response, send_http_error
 from password import generate_password
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def hello_world():
