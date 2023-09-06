@@ -110,12 +110,16 @@ input[type="checkbox"] {
   font-family: "Lato", sans-serif;
   outline: none;
   cursor: pointer;
+
+  transition: all ease-in-out 0.3s;
 }
 
 input:checked {
   background-color: #007a7e;
   position: relative;
   border: 0.15em solid var(--clr-3);
+
+  transition: all ease-in-out 0.3s;
 }
 
 input:checked::before {
