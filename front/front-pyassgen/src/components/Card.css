@@ -163,6 +163,7 @@ input:checked::before {
 }
 
 span {
+  font-size: 18px;
   margin-left: 5%;
 }
 

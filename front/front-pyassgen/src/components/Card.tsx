@@ -3,9 +3,9 @@ import { useState } from "react";
 
 export const Card = () => {
   const [options, setOptions] = useState([
-    { option: "Include numbers ?", state: false },
-    { option: "Include symbols ?", state: false },
-    { option: "Include hash ?", state: false },
+    { option: "Must include numbers", state: false },
+    { option: "Must include symbols", state: false },
+    { option: "Must send the password hash", state: false },
   ]);
 
   const [length, setLength] = useState<number>(1);
