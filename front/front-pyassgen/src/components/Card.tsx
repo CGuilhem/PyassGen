@@ -12,7 +12,7 @@ export const Card = () => {
   const [length, setLength] = useState<number>(1);
   const [password, setPassword] = useState<string>("");
   const [hash, setHash] = useState<string>("");
-  const [salt, setSalt] = useState<string>("");
+  const [rating, setRating] = useState<string>("");
 
   const handleChange = (state: boolean, i: number) => {
     const tmp = options[i];
@@ -25,6 +25,10 @@ export const Card = () => {
   const handleOpacity = () => {
     const divpass = document.querySelector(".password");
     divpass?.classList.add("visible");
+  };
+
+  const automaticClipboardSaving = (password: string) => {
+    navigator.clipboard.writeText(password);
   };
 
   const handleGenerateClick = async () => {
@@ -40,8 +44,10 @@ export const Card = () => {
     const resJson = await res.json();
     setPassword(resJson.response.password);
     setHash(resJson.response.hash);
+    setRating(resJson.response.rating);
 
     handleOpacity();
+    automaticClipboardSaving(resJson.response.password);
   };
 
   return (
@@ -62,7 +68,7 @@ export const Card = () => {
           </div>
         ))}
         <div className="input-length">
-          <span>Password length</span>
+          <span className="password-title">Password length</span>
           <input
             type="number"
             className="input-number"
@@ -76,7 +82,8 @@ export const Card = () => {
           />
         </div>
         <div className="password">
-          {"Mot de passe: " + password} <br /> {hash && "Hash: " + hash}
+          {"Mot de passe: " + password} <br /> {"Notation: " + rating} <br />
+          {hash && "Hash: " + hash}
         </div>
         <button className="button" onClick={handleGenerateClick}>
           Generate
