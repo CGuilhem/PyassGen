@@ -24,10 +24,10 @@ def hash_password(password, is_salted):
     # Create a salt (a random value) to add to the password before hashing
     salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
     # Add the salt to the password and hash the result
-    if(is_salted):
+    if(is_salted == '1'):
         password_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
     else:
-         password_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), 100000)
+         password_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), b'', 100000)
     # Convert the binary hash to a hexadecimal representation
     password_hash = binascii.hexlify(password_hash)
     # Combine the salt and hashed password as a single string
