@@ -22,7 +22,7 @@ def generate_password(length, include_numbers, include_symbols):
 
 def hash_password(password, isSalted):
     # Create a salt (a random value) to add to the password before hashing
-    salt = "CeciEstPourMontrerQueLeSaltFonctionne"
+    salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
     # Add the salt to the password and hash the result
     if(isSalted):
         password_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
