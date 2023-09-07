@@ -146,7 +146,7 @@ input:checked::before {
 
 .password {
   position: absolute;
-  top: 45%;
+  top: 49%;
   left: 5%;
   height: 200px;
   width: 350px;

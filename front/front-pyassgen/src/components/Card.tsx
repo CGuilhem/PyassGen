@@ -6,11 +6,13 @@ export const Card = () => {
     { option: "May include numbers", state: false },
     { option: "May include symbols", state: false },
     { option: "Must send the password hash", state: false },
+    { option: "Must send a salted hash", state: false },
   ]);
 
   const [length, setLength] = useState<number>(1);
   const [password, setPassword] = useState<string>("");
   const [hash, setHash] = useState<string>("");
+  const [salt, setSalt] = useState<string>("");
 
   const handleChange = (state: boolean, i: number) => {
     const tmp = options[i];
@@ -30,9 +32,10 @@ export const Card = () => {
     const numbers = options[0].state ? 1 : 0;
     const symbols = options[1].state ? 1 : 0;
     const hash = options[2].state ? 1 : 0;
+    const salt = options[3].state ? 1 : 0;
 
     const res = await fetch(
-      `http://127.0.0.1:5000/password/${len}/${numbers}/${symbols}/${hash}`
+      `http://127.0.0.1:5000/password/${len}/${numbers}/${symbols}/${hash}/${salt}`
     );
     const resJson = await res.json();
     setPassword(resJson.response.password);
