@@ -1,8 +1,5 @@
 import unittest
-import string
-from password import generate_password
-from password import hash_password  
-from password import rating_password  
+from src.password import generate_password, hash_password, rating_password
 
 class TestPasswordHashing(unittest.TestCase):
 

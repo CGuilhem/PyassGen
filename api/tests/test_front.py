@@ -3,7 +3,6 @@ from unittest.mock import patch
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from httpApi import send_http_error
 
 class TestFront(unittest.TestCase):
 

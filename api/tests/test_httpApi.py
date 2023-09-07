@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch
-from httpApi import send_http_error, send_http_response
+from src.httpApi import send_http_error, send_http_response
 
 class TestHttpApiFunctions(unittest.TestCase):
 
