@@ -2,7 +2,7 @@ import unittest
 import string
 from password import generate_password
 from password import hash_password  
-from password import evaluate_password  
+from password import rating_password  
 
 class TestPasswordHashing(unittest.TestCase):
 
@@ -66,21 +66,21 @@ class TestPasswordFunction(unittest.TestCase):
         print("#### Generate password #### Test status : Test with an invalid password length (negative number of characters).")
         self.assertEqual(password_Negative, None)
 
-class TestEvaluatePassword(unittest.TestCase):
+class TestRatingPassword(unittest.TestCase):
 
     def test_weak_password(self):
         password = "weakpass"
-        rating = evaluate_password(password)
+        rating = rating_password(password)
         self.assertEqual(rating, "Faible")
 
     def test_medium_password(self):
         password = "Medium123"
-        rating = evaluate_password(password)
+        rating = rating_password(password)
         self.assertEqual(rating, "Moyen")
 
     def test_strong_password(self):
         password = "Very_StrongPPPPP@ss123"
-        rating = evaluate_password(password)
+        rating = rating_password(password)
         self.assertEqual(rating, "Fort")
 
 if __name__ == '__main__':
