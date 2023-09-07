@@ -33,3 +33,39 @@ def hash_password(password, is_salted):
     # Combine the salt and hashed password as a single string
     hashed_password = (salt + password_hash).decode('ascii')
     return hashed_password
+
+def evaluate_password(password):
+    # Initial score is 0
+    score = 0
+
+    # Check the length of the password
+    if len(password) >= 8:
+        score += 2  # Award 2 points for a sufficient length
+
+    # Check if the password includes numbers
+    if any(c.isdigit() for c in password):
+        score += 2  # Award 2 points for including numbers
+
+    # Check if the password includes uppercase letters
+    if any(c.isupper() for c in password):
+        score += 2  # Award 2 points for including uppercase letters
+
+    # Check if the password includes special characters
+    if any(c in string.punctuation for c in password):
+        score += 2  # Award 2 points for including special characters
+
+    # Define rating categories based on the score
+    if score >= 8:
+        rating = "Fort"
+    elif score >= 4:
+        rating = "Moyen"
+    else:
+        rating = "Faible"
+
+    return rating
+
+if __name__ == '__main__':
+    password = generate_password(12, True, True)
+    print("Mot de passe généré :", password)
+    rating = evaluate_password(password)
+    print("Qualité du mot de passe :", rating)
