@@ -3,6 +3,9 @@ import os
 import random
 import string
 import hashlib
+import sys
+
+sys.path.append('src')
 
 def generate_password(length, include_numbers, include_symbols):
     characters = string.ascii_letters  # Lettres majuscules et minuscules par défaut

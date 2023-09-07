@@ -1,4 +1,7 @@
+import sys
 from flask import jsonify
+
+sys.path.append('src')
 
 def send_http_error(error, status_code):
     response = {

@@ -1,7 +1,10 @@
+import sys
 from flask import Flask
 from flask_cors import CORS, cross_origin
 from src.httpApi import send_http_response, send_http_error
 from src.password import generate_password, hash_password, rating_password
+
+sys.path.append('src')
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
