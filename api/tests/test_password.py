@@ -54,14 +54,14 @@ class TestPasswordFunction(unittest.TestCase):
         self.assertEqual(len(password), 100)
 
         # Test with an invalid password length (0 characters)
-        password_lensIs0 = generate_password(0, include_numbers=True, include_symbols=True)
+        password_length_is_0 = generate_password(0, include_numbers=True, include_symbols=True)
         print("#### Generate password #### Test status : Test with an invalid password length (0 characters).")
-        self.assertEqual(password_lensIs0, None)
+        self.assertEqual(password_length_is_0, None)
 
         # Test with an invalid password length (negative number of characters)
-        password_Negative = generate_password(-5, include_numbers=True, include_symbols=True)
+        password_negative = generate_password(-5, include_numbers=True, include_symbols=True)
         print("#### Generate password #### Test status : Test with an invalid password length (negative number of characters).")
-        self.assertEqual(password_Negative, None)
+        self.assertEqual(password_negative, None)
 
 class TestRatingPassword(unittest.TestCase):
 
