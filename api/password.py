@@ -34,7 +34,7 @@ def hash_password(password, is_salted):
     hashed_password = (salt + password_hash).decode('ascii')
     return hashed_password
 
-def evaluate_password(password):
+def rating_password(password):
     # Initial score is 0
     score = 0
 
@@ -63,9 +63,3 @@ def evaluate_password(password):
         rating = "Faible"
 
     return rating
-
-if __name__ == '__main__':
-    password = generate_password(12, True, True)
-    print("Mot de passe généré :", password)
-    rating = evaluate_password(password)
-    print("Qualité du mot de passe :", rating)
