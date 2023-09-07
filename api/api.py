@@ -10,15 +10,15 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 def hello_world():
     return "<p>Welcome to PYassGen!</p>"
 
-@app.route("/password/<int:length>/<include_numbers>/<include_symbols>/<include_hash>")
-def send_password(length, include_numbers, include_symbols, include_hash):
+@app.route("/password/<int:length>/<include_numbers>/<include_symbols>/<include_hash>/<include_salt>")
+def send_password(length, include_numbers, include_symbols, include_hash, include_salt):
       
     password = generate_password(length, include_numbers, include_symbols)
 
     if (password == None):
       return send_http_error("La longueur du mot de passe doit être supérieure à zéro.", 400)
     else:
-      hashed_password = hash_password(password) if include_hash == '1' else ""
+      hashed_password = hash_password(password, include_salt) if include_hash == '1' else ""
       response = {
           'password': password,
           'hash': hashed_password

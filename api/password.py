@@ -20,11 +20,11 @@ def generate_password(length, include_numbers, include_symbols):
 
     return password
 
-def hash_password(password, isSalted):
+def hash_password(password, is_salted):
     # Create a salt (a random value) to add to the password before hashing
     salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
     # Add the salt to the password and hash the result
-    if(isSalted):
+    if(is_salted):
         password_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), salt, 100000)
     else:
          password_hash = hashlib.pbkdf2_hmac('sha256', password.encode('utf-8'), 100000)
@@ -33,7 +33,3 @@ def hash_password(password, isSalted):
     # Combine the salt and hashed password as a single string
     hashed_password = (salt + password_hash).decode('ascii')
     return hashed_password
-
-print("que des lettres :" + generate_password(50,0,0))
-print("que des lettres+chiffres :" + generate_password(50,1,0))
-print("que des lettres+symb :" + generate_password(50,0,1))
