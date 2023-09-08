@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+:root {
+  --clr-1: #052b2f;
+  --clr-2: #073438;
+  --clr-3: #0e4b50;
+  --clr-4: #2d8f85;
+  --clr-5: #637c54;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+.card {
+  position: relative;
+  height: 70vh;
+  aspect-ratio: 1 / 1.5;
+
+  background: var(--clr-1);
+  border-radius: 0.5rem;
+
+  color: white;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    var(--clr-3),
+    var(--clr-4),
+    var(--clr-5),
+    var(--clr-4),
+    var(--clr-3)
+  );
+  border-radius: inherit;
+  animation: rotation 6s linear infinite;
+}
+
+.card::after {
+  filter: blur(3.5rem);
+}
+
+.title {
+  margin-bottom: 0;
+  font-size: 2rem;
+  padding: 0.5em;
+  font-family: "Lato", sans-serif;
+}
+
+.button {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 50%;
+  padding: 1em;
+  border-radius: 1em;
+  border: none;
+}
+
+.button {
+  background: var(--clr-4);
+  border-radius: 999px;
+  box-shadow: var(--clr-5) 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji",
+    NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji",
+    EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+input[type="checkbox"] {
+  /* removing default appearance */
+  -webkit-appearance: none;
+  appearance: none;
+  /* creating a custom design */
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border: 0.15em solid #007a7e;
+  transform: translateY(30%);
+  font-family: "Lato", sans-serif;
+  outline: none;
+  cursor: pointer;
+
+  transition: all ease-in-out 0.3s;
+}
+
+input:checked {
+  background-color: #007a7e;
+  position: relative;
+  border: 0.15em solid var(--clr-3);
+
+  transition: all ease-in-out 0.3s;
+}
+
+input:checked::before {
+  content: "";
+  font-size: 1.5em;
+  color: #fff;
+  position: absolute;
+  right: 1px;
+  top: -5px;
+}
+
+.checkbox-wrapper input[type="checkbox"]:disabled {
+  border-color: #c0c0c0;
+  background-color: #c0c0c0;
+}
+
+.checkbox-wrapper input[type="checkbox"]:disabled + span {
+  color: #c0c0c0;
+}
+
+.checkbox-wrapper input[type="checkbox"]:focus {
+  box-shadow: 0 0 20px #007a7e;
+}
+
+.password {
+  position: absolute;
+  top: 49%;
+  left: 5%;
+  height: 200px;
+  width: 350px;
+
+  opacity: 0;
+  padding: 1em;
+
+  overflow-x: scroll;
+
+  font-family: "Lato", sans-serif;
+
+  background: var(--clr-2);
+  transition: opacity 0.5s ease-in;
+}
+
+.password.visible {
+  opacity: 1;
+}
+
+span {
+  font-size: 18px;
+  margin-left: 5%;
+}
+
+input {
+  margin-left: 5%;
+  margin-top: 2%;
+}
+
+.input-number {
+  color: white;
+  font-size: large;
+  background: var(--clr-2);
+}
+
+.input-length {
+  margin-top: 25px;
+}
+
+.option {
+  font-size: 18px;
+}
+
+.css-ryrseu-MuiRating-root {
+  position: absolute;
+  top: 65%;
+  left: 8%;
+  color: var(--clr-5) !important;
+}
+
+.MuiRating-icon {
+  font-size: 35px;
+}
+
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  100% {
+    --gradient-angle: 360deg;
+  }
+}
