@@ -97,7 +97,7 @@ export const Card = () => {
         </div>
         <div className="password">
           {"Mot de passe: " + password} <br />
-          {hash && "Hash: " + hash}
+          {hash && "Hash: " + hash} <br />
           <Rating name="read-only" value={rating} readOnly className="rating" />
         </div>
         <button className="button" onClick={handleGenerateClick}>

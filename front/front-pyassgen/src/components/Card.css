@@ -154,6 +154,7 @@ input:checked::before {
   opacity: 0;
   padding: 1em;
 
+  white-space: nowrap;
   overflow-x: scroll;
 
   font-family: "Lato", sans-serif;
@@ -192,7 +193,7 @@ input {
 
 .css-ryrseu-MuiRating-root {
   position: absolute;
-  top: 65%;
+  top: 45%;
   left: 8%;
   color: var(--clr-5) !important;
 }
