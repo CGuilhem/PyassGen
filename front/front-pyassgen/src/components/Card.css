@@ -190,6 +190,17 @@ input {
   font-size: 18px;
 }
 
+.css-ryrseu-MuiRating-root {
+  position: absolute;
+  top: 65%;
+  left: 8%;
+  color: var(--clr-5) !important;
+}
+
+.MuiRating-icon {
+  font-size: 35px;
+}
+
 @keyframes rotation {
   0% {
     --gradient-angle: 0deg;
