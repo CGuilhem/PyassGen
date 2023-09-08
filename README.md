@@ -35,7 +35,7 @@
 <h3 align="center">PYassGen</h3>
 
   <p align="center">
-    A simple password generator built with Flask and Reacts
+    A simple password generator built with Flask and React
     <br />
     <a href="https://github.com/CGuilhem/PyassGen"><strong>Explore the docs »</strong></a>
     <br />
@@ -76,58 +76,88 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## About The Project 📔
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<div align="center">
+  <img src="images/PYassGen.png" alt="PYassGen Screen Shot">
+</div>
+
+PYassGen is an automatic password generator builds with Flask and React.  
+This will enable you to generate passwords using several parameters (size, presence of different types of characters), as well as their hash (salted or not).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-### Built With
+### Built With 🏗️
 
-- [![React][React.js]][React-url]
-- [![Flask][Flask]][Flask-url]
+[![React][React.js]][React-url] [![Flask][Flask]][Flask-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
 
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+## Getting Started 🎉
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+- Python  
+   [Follow this link to install Python](https://www.python.org/downloads/)
+- pnpm  
+   [Follow this link to install pnpm](https://pnpm.io/installation)
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. **Clone the repo**
    ```sh
    git clone https://github.com/CGuilhem/PyassGen.git
    ```
-3. Install NPM packages
+2. **Install front-end packages**
    ```sh
-   npm install
+   cd PyassGen
+   cd front
+   pnpm i
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
+3. **Run front-end application**
+   ```sh
+   pnpm run dev
+   ```
+4. **Create a virtual environment and launch it**
+
+   - **macOS/Linux**
+
+     ```sh
+     cd PyassGen
+     cd api
+     python3 -m venv .venv
+     . .venv/bin/activate
+     ```
+
+   - **Windows**
+
+     ```sh
+     cd PyassGen
+     cd api
+     py -3 -m venv .venv
+     .venv\Scripts\activate
+     ```
+
+5. **Install back-end packages**
+
+   ```sh
+     pip install -r requirements.txt
+   ```
+
+6. **Run back-end application**
+   ```sh
+    flask --app src/api run
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- USAGE EXAMPLES -->
 
-## Usage
+## Usage 💻
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+🚧 You can already generate passwords, but several other features are currently under development.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -135,12 +165,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
 
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
+## Roadmap 🗺️
 
 See the [open issues](https://github.com/CGuilhem/PyassGen/issues) for a full list of proposed features (and known issues).
 
@@ -148,7 +173,7 @@ See the [open issues](https://github.com/CGuilhem/PyassGen/issues) for a full li
 
 <!-- CONTRIBUTING -->
 
-## Contributing
+## Contributing 🫂
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -165,7 +190,7 @@ Don't forget to give the project a star! Thanks again!
 
 <!-- LICENSE -->
 
-## License
+## License 🗒️
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
@@ -173,9 +198,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+## Contact 📇
 
 Project Link: [https://github.com/CGuilhem/PyassGen](https://github.com/CGuilhem/PyassGen)
 
@@ -183,11 +206,9 @@ Project Link: [https://github.com/CGuilhem/PyassGen](https://github.com/CGuilhem
 
 <!-- ACKNOWLEDGMENTS -->
 
-## Acknowledgments
+## Acknowledgments 🙏
 
-- []()
-- []()
-- []()
+- [Thomas DUARTE](https://github.com/Thomas1301)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -205,7 +226,7 @@ Project Link: [https://github.com/CGuilhem/PyassGen](https://github.com/CGuilhem
 [license-shield]: https://img.shields.io/github/license/CGuilhem/PyassGen.svg?style=for-the-badge
 [license-url]: https://github.com/CGuilhem/PyassGen/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: images/PYassGen.png
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [Flask]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
