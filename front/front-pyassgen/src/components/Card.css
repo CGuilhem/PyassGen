@@ -202,6 +202,29 @@ input {
   font-size: 35px;
 }
 
+.password-copied {
+  position: absolute;
+  top: 0%;
+  right: 3%;
+
+  width: 200px;
+  height: 50px;
+
+  text-align: center;
+  padding-top: 15px;
+
+  border-radius: 0 0 5px 5px;
+  color: white;
+  background: var(--clr-3);
+
+  transform: translateY(-100%);
+  transition: transform 0.2s ease;
+}
+
+.password-copied.visible {
+  transform: translateY(0%);
+}
+
 @keyframes rotation {
   0% {
     --gradient-angle: 0deg;

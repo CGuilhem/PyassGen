@@ -30,6 +30,11 @@ export const Card = () => {
 
   const automaticClipboardSaving = (password: string) => {
     navigator.clipboard.writeText(password);
+    const div = document.querySelector(".password-copied");
+    div?.classList.add("visible");
+    setTimeout(() => {
+      div?.classList.remove("visible");
+    }, 2000);
   };
 
   const calculateRatingValue = (rating: string) => {
@@ -66,6 +71,7 @@ export const Card = () => {
 
   return (
     <>
+      <div className="password-copied">Copied current password</div>
       <div className="card">
         <h1 className="title">PYassGen</h1>
         {options.map(({ option, state }, i) => (
